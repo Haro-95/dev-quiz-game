@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Developer Quiz Game
+
+A modern and interactive quiz game for developers to test their programming language recognition skills. This game presents 10 random code snippets from different popular programming languages, and challenges users to identify the language correctly.
+
+## Features
+
+- 🎮 Clean, modern UI with dark/light mode
+- 🔄 10 random code snippets per session
+- ✅ Instant feedback after each answer
+- 📊 Score tracking and detailed results
+- 📱 Responsive design for mobile and desktop
+
+## Tech Stack
+
+- **Frontend Framework**: Next.js with App Router (React 19)
+- **Styling**: Tailwind CSS 
+- **UI Components**: Custom components with Radix UI primitives
+- **Syntax Highlighting**: React Syntax Highlighter
+- **Type Safety**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Node.js 18+ installed
+- npm or yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Haro-95/dev-quiz-game.git
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn
+   ```
 
-## Learn More
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to play the game.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## How to Play
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. You will be presented with a code snippet and four programming language options.
+2. Choose the language you believe the code is written in.
+3. Receive instant feedback on your answer.
+4. After 10 questions, view your final score and analysis.
+5. Play again to test your knowledge with new snippets!
 
-## Deploy on Vercel
+## Extending the Game
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Adding More Questions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To add more questions, edit the `src/lib/data/quiz-data.ts` file and add new questions to the `quizQuestions` array following the existing format.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Author
+
+Developed by Haro Abdulah
