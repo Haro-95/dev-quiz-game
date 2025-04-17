@@ -19,6 +19,7 @@
 
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -35,7 +36,14 @@ yarn-error.log*
 
 # vercel
 .vercel
+.vercelignore
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo

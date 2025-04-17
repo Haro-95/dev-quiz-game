@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Raleway } from "next/font/google";
 import "./globals.css";
+import "../styles/syntax-highlighter.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Toaster } from "@/components/ui/toaster";
@@ -72,8 +73,6 @@ export default function RootLayout({
           href="https://fonts.googleapis.com" 
           crossOrigin="anonymous" 
         />
-        <link rel="preload" href="/assets/syntax-highlighter.css" as="style" />
-        <link rel="stylesheet" href="/assets/syntax-highlighter.css" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-background font-sans antialiased`}

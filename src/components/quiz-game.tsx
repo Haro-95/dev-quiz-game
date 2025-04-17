@@ -12,12 +12,6 @@ import {
   Check, 
   X
 } from "lucide-react";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
 export default function QuizGame() {
   // All state hooks must be declared first and in the same order every render
@@ -55,10 +49,6 @@ export default function QuizGame() {
   };
 
   // All callback hooks next - always in the same order
-  const randomizeOptions = useCallback((question: QuizQuestion) => {
-    return [...question.options].sort(() => Math.random() - 0.5);
-  }, []);
-
   const handleAnswerSelect = useCallback((language: ProgrammingLanguage) => {
     if (isAnswered) return;
 
@@ -165,7 +155,7 @@ export default function QuizGame() {
                         ? "Good work! You have solid programming language knowledge."
                         : quizResult.correctAnswers >= quizResult.totalQuestions * 0.4
                         ? "Nice effort! Keep practicing to improve your score."
-                        : "Keep learning! You'll get better with practice."}
+                        : "Keep learning! You&apos;ll get better with practice."}
                     </p>
                   </div>
                 </div>
@@ -248,70 +238,43 @@ export default function QuizGame() {
         </div>
 
         {/* Question and Answers */}
-        <div>
-          <h3 className="text-xl font-medium mb-4 text-center">
-            What programming language is this code written in?
+        <div className="bg-card rounded-xl p-6 shadow-md border mb-6">
+          <h3 className="text-xl font-semibold mb-4">
+            What programming language is this?
           </h3>
-
-          {/* Answer Options */}
-          <div className="grid grid-cols-2 gap-4 max-w-xl mx-auto mb-6">
+          <div className="grid grid-cols-2 gap-2">
             {randomizedOptions.map((language) => (
-              <Button
+              <button
                 key={language}
-                variant={
-                  isAnswered
-                    ? language === currentQuestion.language
-                      ? "default"
-                      : language === selectedAnswer
-                      ? "destructive"
-                      : "outline"
-                    : "outline"
-                }
-                className={`
-                  p-3 h-auto text-lg sm:text-xl justify-center rounded-full transition-all duration-200
-                  ${
-                    isAnswered &&
-                    language === currentQuestion.language &&
-                    "bg-green-600 hover:bg-green-700 border-green-600"
-                  }
-                  ${
-                    !isAnswered &&
-                    "hover:bg-primary/10 hover:text-primary hover:border-primary"
-                  }
-                `}
+                className={`py-3 px-4 rounded-lg border text-base transition-all duration-200 font-medium ${
+                  !isAnswered 
+                    ? "hover:bg-primary/10 active:bg-primary/20 border-border" 
+                    : selectedAnswer === language
+                      ? language === currentQuestion.language
+                        ? "bg-green-500/10 border-green-500 text-green-600"
+                        : "bg-red-500/10 border-red-500 text-red-600"
+                      : language === currentQuestion.language 
+                        ? "bg-green-500/10 border-green-500 text-green-600" 
+                        : "opacity-50 border-border"
+                }`}
                 onClick={() => handleAnswerSelect(language)}
                 disabled={isAnswered}
               >
                 {language}
-                {isAnswered && language === currentQuestion.language && (
-                  <Check className="ml-2 h-5 w-5" />
-                )}
-                {isAnswered && language === selectedAnswer && language !== currentQuestion.language && (
-                  <X className="ml-2 h-5 w-5" />
-                )}
-              </Button>
+              </button>
             ))}
           </div>
           
-          {/* Feedback pill */}
+          {/* Feedback Pill */}
           {isAnswered && (
-            <div className="flex items-center justify-center animate-fadeIn mt-4">
-              <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-lg ${
-                selectedAnswer === currentQuestion.language 
-                  ? "bg-primary/10 text-primary border-primary/20" 
-                  : "bg-destructive/10 text-destructive border-destructive/20"
-              }`}>
-                {selectedAnswer === currentQuestion.language 
-                ? <>
-                    <Check className="h-5 w-5" />
-                    <span>Correct!</span>
-                  </>
-                : <>
-                    <X className="h-5 w-5" />
-                    <span>Incorrect! It's {currentQuestion.language}</span>
-                  </>
-                }
-              </div>
+            <div className={`mt-4 py-3 px-4 rounded-lg text-center font-medium ${
+              selectedAnswer === currentQuestion.language
+                ? "bg-green-500/20 text-green-600 dark:text-green-400"
+                : "bg-red-500/20 text-red-600 dark:text-red-400"
+            }`}>
+              {selectedAnswer === currentQuestion.language 
+                ? "Correct! Well done!" 
+                : `Incorrect. That&apos;s ${currentQuestion.language} code.`}
             </div>
           )}
         </div>

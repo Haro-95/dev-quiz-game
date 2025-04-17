@@ -66,7 +66,6 @@ export const ThemeToggle = memo(function ThemeToggle() {
       disabled={isAnimating}
       className="rounded-full w-10 h-10 bg-muted/30 hover:bg-muted/60 relative overflow-hidden transition-colors focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
       aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
-      aria-pressed={isDark}
       aria-live="polite"
       role="switch"
       tabIndex={0}

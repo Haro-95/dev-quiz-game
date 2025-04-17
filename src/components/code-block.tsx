@@ -24,7 +24,7 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
   const [hasError, setHasError] = useState(false);
 
   // Map language names to syntax highlighter language identifiers
-  const languageMap: Record<string, string> = {
+  const languageMap = useMemo<Record<string, string>>(() => ({
     "JavaScript": "javascript",
     "TypeScript": "typescript",
     "Python": "python",
@@ -37,7 +37,7 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
     "Go": "go",
     "Rust": "rust",
     "Kotlin": "kotlin"
-  };
+  }), []);
 
   // Memoize processed code to prevent recalculation on re-renders
   const { syntaxLanguage, displayCode } = useMemo(() => {
@@ -50,7 +50,7 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
     const displayCode = displayLines.join('\n') + (nonEmptyLines.length > 10 ? '\n// ...' : '');
     
     return { syntaxLanguage: syntaxLang, displayCode };
-  }, [code, language]);
+  }, [code, language, languageMap]);
 
   // Memoize the syntax highlighter style based on theme
   const syntaxStyle = useMemo(() => 
@@ -62,11 +62,6 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
   useEffect(() => {
     setHasError(false);
   }, [code, language]);
-
-  // Error boundary handler
-  const handleError = () => {
-    setHasError(true);
-  };
 
   // Wrap syntax highlighter rendering in try/catch
   const renderHighlighter = () => {
@@ -92,7 +87,7 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
           {displayCode}
         </SyntaxHighlighter>
       );
-    } catch (error) {
+    } catch {
       // We'll handle the error by showing our error state
       setHasError(true);
       return null;
