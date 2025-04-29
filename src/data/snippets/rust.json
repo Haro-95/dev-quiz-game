@@ -1,0 +1,29 @@
+{
+  "language": "Rust",
+  "snippets": [
+    {
+      "id": "rust-ownership",
+      "code": "let s1 = String::from(\"hello\");\nlet s2 = s1;\n// println!(\"{}\", s1); // Error!",
+      "difficulty": "medium",
+      "tags": ["ownership", "moves"]
+    },
+    {
+      "id": "rust-match",
+      "code": "let opt = Some(5);\nmatch opt {\n    Some(n) => println!(\"{}\", n),\n    None => println!(\"nothing\")\n}",
+      "difficulty": "easy",
+      "tags": ["pattern-matching", "options"]
+    },
+    {
+      "id": "rust-trait",
+      "code": "trait Animal {\n    fn make_sound(&self) -> &str;\n}\n\nimpl Animal for Dog {\n    fn make_sound(&self) -> &str { \"woof\" }\n}",
+      "difficulty": "medium",
+      "tags": ["traits", "impl"]
+    },
+    {
+      "id": "rust-result",
+      "code": "fn divide(x: i32, y: i32) -> Result<i32, &'static str> {\n    if y == 0 { return Err(\"division by zero\"); }\n    Ok(x / y)\n}",
+      "difficulty": "medium",
+      "tags": ["error-handling", "results"]
+    }
+  ]
+} 

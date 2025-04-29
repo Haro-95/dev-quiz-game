@@ -1,0 +1,29 @@
+{
+  "language": "Swift",
+  "snippets": [
+    {
+      "id": "swift-optional",
+      "code": "let name: String? = \"John\"\nif let unwrapped = name {\n    print(unwrapped)\n}",
+      "difficulty": "easy",
+      "tags": ["optionals", "unwrapping"]
+    },
+    {
+      "id": "swift-closure",
+      "code": "let numbers = [1, 2, 3, 4, 5]\nlet doubled = numbers.map { $0 * 2 }",
+      "difficulty": "medium",
+      "tags": ["closures", "arrays"]
+    },
+    {
+      "id": "swift-struct",
+      "code": "struct Point {\n    let x: Double\n    let y: Double\n    \n    func distance(to: Point) -> Double {\n        return 0.0\n    }\n}",
+      "difficulty": "medium",
+      "tags": ["structs", "methods"]
+    },
+    {
+      "id": "swift-guard",
+      "code": "guard let age = user.age, age >= 18 else {\n    return \"Too young\"\n}",
+      "difficulty": "medium",
+      "tags": ["guard", "control-flow"]
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "language": "Kotlin",
+  "snippets": [
+    {
+      "id": "kotlin-data",
+      "code": "data class User(\n    val name: String,\n    var age: Int\n)",
+      "difficulty": "easy",
+      "tags": ["data-class", "classes"]
+    },
+    {
+      "id": "kotlin-scope",
+      "code": "person.apply {\n    name = \"John\"\n    age = 30\n}.also {\n    println(it.name)\n}",
+      "difficulty": "medium",
+      "tags": ["scope-functions", "builders"]
+    },
+    {
+      "id": "kotlin-when",
+      "code": "val str = when (x) {\n    1 -> \"one\"\n    2 -> \"two\"\n    else -> \"many\"\n}",
+      "difficulty": "easy",
+      "tags": ["when", "control-flow"]
+    },
+    {
+      "id": "kotlin-coroutine",
+      "code": "launch {\n    val data = async { fetchData() }\n    println(data.await())\n}",
+      "difficulty": "medium",
+      "tags": ["coroutines", "async"]
+    }
+  ]
+} 

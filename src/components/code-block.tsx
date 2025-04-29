@@ -79,16 +79,11 @@ const CodeBlock = memo(function CodeBlock({ code, language }: CodeBlockProps) {
             overflow: "hidden",
           }}
           showLineNumbers
-          wrapLines
-          lineProps={{ style: { whiteSpace: 'pre-wrap' } }}
-          codeTagProps={{ className: 'syntax-highlighter-code' }}
-          PreTag="div"
         >
           {displayCode}
         </SyntaxHighlighter>
       );
     } catch {
-      // We'll handle the error by showing our error state
       setHasError(true);
       return null;
     }

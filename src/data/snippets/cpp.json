@@ -1,0 +1,29 @@
+{
+  "language": "C++",
+  "snippets": [
+    {
+      "id": "cpp-template",
+      "code": "template<typename T>\nT max(T a, T b) {\n    return (a > b) ? a : b;\n}",
+      "difficulty": "medium",
+      "tags": ["templates", "generics"]
+    },
+    {
+      "id": "cpp-lambda",
+      "code": "auto sum = [](int a, int b) { return a + b; };\nint result = sum(5, 3);",
+      "difficulty": "medium",
+      "tags": ["lambda", "functional"]
+    },
+    {
+      "id": "cpp-smart-ptr",
+      "code": "auto ptr = std::make_shared<int>(42);\nstd::weak_ptr<int> weak = ptr;",
+      "difficulty": "medium",
+      "tags": ["smart-pointers", "memory"]
+    },
+    {
+      "id": "cpp-range",
+      "code": "std::vector<int> nums = {1, 2, 3};\nfor (const auto& n : nums) {\n    std::cout << n << ' ';\n}",
+      "difficulty": "easy",
+      "tags": ["range-for", "containers"]
+    }
+  ]
+} 

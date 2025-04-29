@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Quiz Game Developer",
-      url: "https://github.com/yourusername",
+      url: "https://github.com/Haro-95/dev-quiz-game.git",
     }
   ],
   keywords: [
@@ -67,22 +67,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <link 
-          rel="preconnect" 
-          href="https://fonts.googleapis.com" 
-          crossOrigin="anonymous" 
-        />
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${raleway.variable} bg-background font-sans antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <ThemeProvider>
           <Header />
           <main>{children}</main>
           <Toaster />

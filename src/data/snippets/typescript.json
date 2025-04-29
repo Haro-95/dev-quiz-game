@@ -1,0 +1,29 @@
+{
+  "language": "TypeScript",
+  "snippets": [
+    {
+      "id": "ts-interface",
+      "code": "interface User {\n  name: string;\n  age?: number;\n  greet(): void;\n}",
+      "difficulty": "easy",
+      "tags": ["interfaces", "types"]
+    },
+    {
+      "id": "ts-generic",
+      "code": "function first<T>(arr: T[]): T | undefined {\n  return arr[0];\n}",
+      "difficulty": "medium",
+      "tags": ["generics", "functions"]
+    },
+    {
+      "id": "ts-type",
+      "code": "type Status = 'pending' | 'active' | 'done';\nlet status: Status = 'pending';",
+      "difficulty": "medium",
+      "tags": ["union-types", "literals"]
+    },
+    {
+      "id": "ts-utility",
+      "code": "type User = {\n  name: string;\n  age: number;\n};\ntype PartialUser = Partial<User>;",
+      "difficulty": "medium",
+      "tags": ["utility-types", "mapped-types"]
+    }
+  ]
+} 

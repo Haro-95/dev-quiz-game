@@ -1,0 +1,29 @@
+{
+  "language": "Go",
+  "snippets": [
+    {
+      "id": "go-struct",
+      "code": "type Person struct {\n    Name string\n    Age  int\n}\n\nfunc (p Person) Greet() string {\n    return \"Hello\"\n}",
+      "difficulty": "easy",
+      "tags": ["structs", "methods"]
+    },
+    {
+      "id": "go-goroutine",
+      "code": "go func() {\n    fmt.Println(\"Hello from goroutine\")\n}()\n\ntime.Sleep(time.Second)",
+      "difficulty": "medium",
+      "tags": ["concurrency", "goroutines"]
+    },
+    {
+      "id": "go-channel",
+      "code": "ch := make(chan string)\ngo func() { ch <- \"hello\" }()\nmsg := <-ch",
+      "difficulty": "medium",
+      "tags": ["channels", "communication"]
+    },
+    {
+      "id": "go-interface",
+      "code": "type Writer interface {\n    Write([]byte) error\n}\n\nvar _ Writer = (*bytes.Buffer)(nil)",
+      "difficulty": "medium",
+      "tags": ["interfaces", "types"]
+    }
+  ]
+} 

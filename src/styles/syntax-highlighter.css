@@ -1,51 +1,77 @@
-/* Syntax highlighter styles */
-.syntax-highlighter-code {
-  font-family: var(--font-geist-mono);
-  text-shadow: none !important;
+/* Base styles */
+pre {
+  margin: 0;
+  padding: 0;
+  background: transparent;
 }
 
-/* Token styling */
+code {
+  font-family: var(--font-geist-mono);
+  font-size: 1.2rem;
+  line-height: 1.75;
+  text-shadow: none;
+}
+
+/* Syntax highlighter container */
+.syntax-highlighter-code {
+  font-family: var(--font-geist-mono);
+  text-shadow: none;
+}
+
+/* Line number styles */
+.react-syntax-highlighter-line-number {
+  font-family: var(--font-geist-mono);
+  font-variant-numeric: tabular-nums;
+  margin-right: 1em;
+  min-width: 3em;
+  display: inline-block;
+  text-align: right;
+  user-select: none;
+  position: sticky;
+  left: 0;
+  background: inherit;
+}
+
+/* Code line layout */
+.react-syntax-highlighter-code-line {
+  display: flex;
+}
+
+.react-syntax-highlighter-code-line > span:not(.react-syntax-highlighter-line-number) {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Token colors - VSCode Dark+ theme */
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-  color: #6a9955;
+  color: #6A9955;
 }
 
-.token.punctuation {
-  color: #d4d4d4;
+.token.string,
+.token.char,
+.token.selector,
+.token.attr-name,
+.token.builtin,
+.token.inserted {
+  color: #ce9178;
 }
 
+.token.number,
 .token.property,
 .token.tag,
 .token.boolean,
-.token.number,
 .token.constant,
 .token.symbol,
 .token.deleted {
   color: #b5cea8;
 }
 
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-  color: #ce9178;
-}
-
-.token.operator,
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-  color: #d4d4d4;
-}
-
+.token.keyword,
 .token.atrule,
-.token.attr-value,
-.token.keyword {
+.token.attr-value {
   color: #569cd6;
 }
 
@@ -53,12 +79,24 @@
   color: #dcdcaa;
 }
 
-.token.regex,
-.token.important,
-.token.variable {
-  color: #d16969;
+.token.class-name {
+  color: #4ec9b0;
 }
 
+.token.constant {
+  color: #4fc1ff;
+}
+
+.token.punctuation,
+.token.operator {
+  color: #d4d4d4;
+}
+
+.token.variable {
+  color: #9cdcfe;
+}
+
+/* Text formatting */
 .token.important,
 .token.bold {
   font-weight: bold;
@@ -72,39 +110,8 @@
   cursor: help;
 }
 
-/* Line numbers */
-pre.line-numbers {
-  position: relative;
-  padding-left: 3.8em;
-  counter-reset: linenumber;
-}
-
-pre.line-numbers > code {
-  position: relative;
-}
-
-.line-numbers .line-numbers-rows {
-  position: absolute;
-  pointer-events: none;
-  top: 0;
-  font-size: 100%;
-  left: -3.8em;
-  width: 3em; /* works for line-numbers below 1000 lines */
-  letter-spacing: -1px;
-  border-right: 1px solid rgba(115, 138, 148, 0.2);
-  user-select: none;
-}
-
-.line-numbers-rows > span {
-  pointer-events: none;
-  display: block;
-  counter-increment: linenumber;
-}
-
-.line-numbers-rows > span:before {
-  content: counter(linenumber);
-  color: #738a94;
-  display: block;
-  padding-right: 0.8em;
-  text-align: right;
+/* Remove legacy line number styles */
+.line-numbers,
+.line-numbers-rows {
+  display: none;
 } 

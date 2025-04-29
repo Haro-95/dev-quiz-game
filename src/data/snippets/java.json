@@ -1,0 +1,29 @@
+{
+  "language": "Java",
+  "snippets": [
+    {
+      "id": "java-stream",
+      "code": "List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);\nint sum = nums.stream()\n    .filter(n -> n % 2 == 0)\n    .mapToInt(n -> n)\n    .sum();",
+      "difficulty": "medium",
+      "tags": ["streams", "functional"]
+    },
+    {
+      "id": "java-class",
+      "code": "public class User {\n    private String name;\n    \n    public User(String name) {\n        this.name = name;\n    }\n}",
+      "difficulty": "easy",
+      "tags": ["classes", "oop"]
+    },
+    {
+      "id": "java-optional",
+      "code": "Optional<String> name = Optional.ofNullable(getName());\nname.ifPresent(System.out::println);",
+      "difficulty": "medium",
+      "tags": ["optional", "null-safety"]
+    },
+    {
+      "id": "java-lambda",
+      "code": "Runnable task = () -> System.out.println(\"Hello\");\nnew Thread(task).start();",
+      "difficulty": "easy",
+      "tags": ["lambda", "threads"]
+    }
+  ]
+} 

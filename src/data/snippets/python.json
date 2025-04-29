@@ -1,0 +1,29 @@
+{
+  "language": "Python",
+  "snippets": [
+    {
+      "id": "py-list-comp",
+      "code": "numbers = [1, 2, 3, 4, 5]\nsquares = [x**2 for x in numbers]\nprint(squares)",
+      "difficulty": "easy",
+      "tags": ["list-comprehension", "basics"]
+    },
+    {
+      "id": "py-decorator",
+      "code": "def log_call(func):\n    def wrapper(*args):\n        print(f'Calling {func.__name__}')\n        return func(*args)\n    return wrapper",
+      "difficulty": "medium",
+      "tags": ["decorators", "functions"]
+    },
+    {
+      "id": "py-class",
+      "code": "class Dog:\n    def __init__(self, name):\n        self.name = name\n    \n    def bark(self):\n        return 'Woof!'",
+      "difficulty": "easy",
+      "tags": ["classes", "oop"]
+    },
+    {
+      "id": "py-context",
+      "code": "with open('file.txt', 'r') as f:\n    data = f.read()\n    print(data)",
+      "difficulty": "easy",
+      "tags": ["context-manager", "files"]
+    }
+  ]
+} 

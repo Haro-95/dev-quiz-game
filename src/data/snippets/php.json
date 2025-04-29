@@ -1,0 +1,29 @@
+{
+  "language": "PHP",
+  "snippets": [
+    {
+      "id": "php-array",
+      "code": "$fruits = ['apple', 'banana'];\narray_push($fruits, 'orange');\nforeach ($fruits as $fruit) {\n    echo $fruit;\n}",
+      "difficulty": "easy",
+      "tags": ["arrays", "loops"]
+    },
+    {
+      "id": "php-closure",
+      "code": "$multiply = fn($x, $y) => $x * $y;\n$result = $multiply(4, 5);",
+      "difficulty": "medium",
+      "tags": ["closure", "functional"]
+    },
+    {
+      "id": "php-class",
+      "code": "class User {\n    private string $name;\n    \n    public function __construct($name) {\n        $this->name = $name;\n    }\n}",
+      "difficulty": "easy",
+      "tags": ["classes", "oop"]
+    },
+    {
+      "id": "php-null",
+      "code": "$name = $user->name ?? 'Anonymous';\n$age = $user?->age ?? 0;",
+      "difficulty": "medium",
+      "tags": ["null-coalescing", "operators"]
+    }
+  ]
+} 

@@ -1,0 +1,29 @@
+{
+  "language": "C#",
+  "snippets": [
+    {
+      "id": "cs-linq",
+      "code": "var numbers = new[] { 1, 2, 3, 4, 5 };\nvar even = numbers.Where(n => n % 2 == 0)\n             .Select(n => n * 2);",
+      "difficulty": "medium",
+      "tags": ["linq", "functional"]
+    },
+    {
+      "id": "cs-async",
+      "code": "async Task<string> GetDataAsync()\n{\n    var result = await client.GetAsync(url);\n    return await result.Content.ReadAsStringAsync();\n}",
+      "difficulty": "medium",
+      "tags": ["async", "tasks"]
+    },
+    {
+      "id": "cs-property",
+      "code": "public class User\n{\n    public string Name { get; set; }\n    public int Age { get; private set; }\n}",
+      "difficulty": "easy",
+      "tags": ["properties", "classes"]
+    },
+    {
+      "id": "cs-pattern",
+      "code": "if (obj is string str)\n{\n    Console.WriteLine(str.Length);\n}",
+      "difficulty": "easy",
+      "tags": ["pattern-matching", "flow-control"]
+    }
+  ]
+} 

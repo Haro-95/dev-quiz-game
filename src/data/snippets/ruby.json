@@ -1,0 +1,29 @@
+{
+  "language": "Ruby",
+  "snippets": [
+    {
+      "id": "ruby-block",
+      "code": "numbers = [1, 2, 3, 4, 5]\nsum = numbers.reduce(0) { |acc, n| acc + n }\nputs sum",
+      "difficulty": "medium",
+      "tags": ["blocks", "enumerable"]
+    },
+    {
+      "id": "ruby-class",
+      "code": "class Person\n  attr_reader :name\n  \n  def initialize(name)\n    @name = name\n  end\nend",
+      "difficulty": "easy",
+      "tags": ["classes", "attributes"]
+    },
+    {
+      "id": "ruby-symbol",
+      "code": "status = :pending\nvalid = %i[pending active done]\nvalid.include?(status)",
+      "difficulty": "easy",
+      "tags": ["symbols", "arrays"]
+    },
+    {
+      "id": "ruby-safe",
+      "code": "user&.profile&.address\nname = user&.name || 'Anonymous'",
+      "difficulty": "medium",
+      "tags": ["safe-navigation", "operators"]
+    }
+  ]
+} 

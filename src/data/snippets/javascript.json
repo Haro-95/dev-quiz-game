@@ -1,0 +1,29 @@
+{
+  "language": "JavaScript",
+  "snippets": [
+    {
+      "id": "js-async-fetch",
+      "code": "const fetchData = async () => {\n  try {\n    const response = await fetch('/api/data');\n    return response.json();\n  } catch (error) {\n    console.error('Error:', error);\n    return null;\n  }\n};",
+      "difficulty": "medium",
+      "tags": ["async", "fetch", "error-handling"]
+    },
+    {
+      "id": "js-array-methods",
+      "code": "const nums = [1, 2, 3, 4, 5];\nconst sum = nums\n  .filter(n => n > 2)\n  .map(n => n * 2)\n  .reduce((a, b) => a + b);",
+      "difficulty": "medium",
+      "tags": ["arrays", "functional"]
+    },
+    {
+      "id": "js-class",
+      "code": "class Person {\n  constructor(name) {\n    this.name = name;\n  }\n  greet() {\n    return `Hi, I'm ${this.name}`;\n  }\n}",
+      "difficulty": "easy",
+      "tags": ["classes", "oop"]
+    },
+    {
+      "id": "js-object",
+      "code": "const user = {\n  name: 'John',\n  age: 30\n};\n\nconst { name, age } = user;\nconsole.log(name);",
+      "difficulty": "easy",
+      "tags": ["destructuring", "objects"]
+    }
+  ]
+} 
