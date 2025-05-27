@@ -56,11 +56,6 @@ A modern and interactive quiz game for developers to test their programming lang
 4. After 10 questions, view your final score and analysis.
 5. Play again to test your knowledge with new snippets!
 
-## Extending the Game
-
-### Adding More Questions
-
-To add more questions, edit the `src/lib/data/quiz-data.ts` file and add new questions to the `quizQuestions` array following the existing format.
 
 ## License
 
