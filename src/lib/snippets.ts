@@ -1,5 +1,5 @@
 import { ProgrammingLanguage, QuizQuestion } from "@/types/quiz";
-import { CodeSnippet, LanguageSnippets } from "@/types/snippets";
+import { CodeSnippet } from "@/types/snippets";
 
 // Import all snippet files
 import javascriptSnippets from "@/data/snippets/javascript.json";
