@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo, useCallback } from "react";
+import { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { ProgrammingLanguage, QuizAnswer, QuizQuestion, QuizResult } from "@/types/quiz";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -12,6 +12,7 @@ import {
   X
 } from "lucide-react";
 import { getRandomQuestions } from "@/lib/snippets";
+import { shuffleArray } from "@/lib/utils";
 
 export default function QuizGame() {
   // State hooks
@@ -22,6 +23,7 @@ export default function QuizGame() {
   const [showResult, setShowResult] = useState(false);
   const [isAnswered, setIsAnswered] = useState(false);
   const [randomizedOptions, setRandomizedOptions] = useState<ProgrammingLanguage[]>([]);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Memoized values
   const currentQuestion = useMemo(() => questions[currentQuestionIndex], [questions, currentQuestionIndex]);
@@ -34,6 +36,15 @@ export default function QuizGame() {
     answers,
   }), [totalQuestions, correctAnswers, answers]);
 
+  // Cleanup timeout on unmount to prevent memory leaks
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
   // Initialize quiz
   const initializeQuiz = () => {
     const randomQuestions = getRandomQuestions(10);
@@ -44,7 +55,7 @@ export default function QuizGame() {
     setShowResult(false);
     setIsAnswered(false);
     if (randomQuestions.length > 0) {
-      setRandomizedOptions([...randomQuestions[0].options].sort(() => Math.random() - 0.5));
+      setRandomizedOptions(shuffleArray(randomQuestions[0].options));
     }
   };
 
@@ -64,7 +75,12 @@ export default function QuizGame() {
 
     setAnswers((prevAnswers) => [...prevAnswers, answer]);
 
-    setTimeout(() => {
+    // Clear any existing timeout before setting a new one
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    timeoutRef.current = setTimeout(() => {
       if (currentQuestionIndex === totalQuestions - 1) {
         setShowResult(true);
       } else {
@@ -72,6 +88,7 @@ export default function QuizGame() {
         setSelectedAnswer(null);
         setIsAnswered(false);
       }
+      timeoutRef.current = null;
     }, 2000);
   }, [currentQuestion, currentQuestionIndex, isAnswered, totalQuestions]);
 
@@ -83,7 +100,7 @@ export default function QuizGame() {
   // Update options when question changes
   useEffect(() => {
     if (questions.length > 0 && currentQuestionIndex < questions.length) {
-      setRandomizedOptions([...questions[currentQuestionIndex].options].sort(() => Math.random() - 0.5));
+      setRandomizedOptions(shuffleArray(questions[currentQuestionIndex].options));
     }
   }, [currentQuestionIndex, questions]);
 
